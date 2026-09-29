@@ -24,7 +24,7 @@ module.exports = {
     },
     async createCard(req, res) {
         try {
-            const { id } = req.params;
+            const  id  = req.params;
             const { title, content } = req.body;
 
             const user = await User.findByPk(id);
