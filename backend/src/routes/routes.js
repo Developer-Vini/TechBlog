@@ -7,4 +7,4 @@ routes.get('/profile/:id', ProfileController.getProfile);
 
 routes.post('/profile/:id/cards', ProfileController.createCards);
 
-module.exports = routesss
+module.exports = routes
