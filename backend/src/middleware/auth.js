@@ -9,13 +9,13 @@ module.exports = (req, res, next) => {
 
     const parts = authHeader.split(' ');
 
-    if (!parts.lenght === 2) {
+    if (parts.length !== 2) {
         return res.status(401).json({ error: 'Erro no formato do token' })
     }
 
     const [scheme, token] = parts;
 
-    if (!/^Bearer$^/i.test(scheme)) {
+    if (!/^Bearer$/i.test(scheme)) {
         return res.status(401).json({ error: 'Token malformado' });
     }
 

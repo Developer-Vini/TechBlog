@@ -1,12 +1,14 @@
 const sequelize = require("./database/db")
 const express = require("express");
-const routes = require("./routes");
-
+const cors = require('cors')
 require("./models/Card")
 require("./models/User")
 
-const app = require("./app")
+const app = require("./app");
+const routes = require("./routes/routes");
 
+
+app.use(cors())
 app.use(express.json());
 app.use(routes);
 

@@ -8,6 +8,7 @@ module.exports = {
             const { id } = req.params;
 
             const profile = await User.findByPk(id, {
+                attributes: {exclude: ['password']},
                 include: {
                     model: Card,
                     attributes: ['id', 'title', 'content', 'createdAt']
@@ -24,7 +25,7 @@ module.exports = {
     },
     async createCard(req, res) {
         try {
-            const  id  = req.params;
+            const id = req.userId;
             const { title, content } = req.body;
 
             const user = await User.findByPk(id);
@@ -37,6 +38,7 @@ module.exports = {
 
             return res.status(201).json(newCard);
         } catch (error) {
+            console.error('Erro de criar card', error);
             return res.status(500).json({ error: "Erro ao criar card" })
         }
     }

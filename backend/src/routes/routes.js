@@ -1,4 +1,4 @@
-const express = require('expres');
+const express = require('express');
 const routes = express.Router();
 
 const ProfileController = require('../controllers/ProfileController');
@@ -11,6 +11,6 @@ routes.post('/login', authController.login)
 
 routes.get('/profile/:id', ProfileController.getProfile);
 
-routes.post('/profile/:id/cards', authMiddleware, ProfileController.createCards);
+routes.post('/cards', authMiddleware, ProfileController.createCard);
 
 module.exports = routes

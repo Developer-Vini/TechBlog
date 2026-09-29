@@ -6,16 +6,16 @@ const jwt = require("jsonwebtoken");
 module.exports = {
     async register(req, res) {
         try {
-            const { name, email, password } = req.body;
+            const { firstName, email, password } = req.body;
 
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            const user = await User.create({ name, email, password: hashedPassword });
-
+           const user = await User.create({ firstName, email, password: hashedPassword });
             user.password = undefined;
 
             return res.status(201).json(user);
         } catch (error) {
+            //console.log("Error do cadastro:", error)
             return res.status(400).json({ error: "Erro ao registrar usuario" })
         }
     },
@@ -28,7 +28,6 @@ module.exports = {
         const user = await User.findOne({
             where: {
                 email
-
             }
         })
 
@@ -46,7 +45,7 @@ module.exports = {
             expiresIn: '2d',
         })
 
-        return res.json({ user: { id: user.id, name: user.name}, tokens});
+        return res.json({ user: { id: user.id, name: user.name}, token});
     }
 
 }
