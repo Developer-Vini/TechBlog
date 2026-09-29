@@ -1,26 +1,31 @@
-const app = require("./app")
 const sequelize = require("./database/db")
+const express = require("express");
+const routes = require("./routes");
 
-const Card = require("./models/Card")
-const User = require("./models/User")
+require("./models/Card")
+require("./models/User")
+
+const app = require("./app")
+
+app.use(express.json());
+app.use(routes);
 
 const PORT = process.env.PORT || 3001
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`)
-})
 
-
-
-/*
-async function start(){
-    try{
+async function start() {
+    try {
         await sequelize.authenticate();
-        console.log("Conectado ao Neon!");
+        await sequelize.sync({ alter: true });
 
-        await sequelize.sync({alter: true});
-        console.log("Tabelas criadas com sucesso")
-    }catch(error){
-        console.error("Erro: ",error)
-    }}
- */
+
+        app.listen(PORT, () => {
+            console.log(`Servidor rodando na porta ${PORT}`)
+        });
+    } catch (error) {
+        console.error("Erro ao iniciar: ", error)
+    }
+}
+
+
+start();
