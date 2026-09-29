@@ -1,0 +1,31 @@
+const jwt = require('jsonwebtoken');
+
+module.exports = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+        return res.status(401).json({ error: "Token não fornecido" })
+    }
+
+    const parts = authHeader.split(' ');
+
+    if (!parts.lenght === 2) {
+        return res.status(401).json({ error: 'Erro no formato do token' })
+    }
+
+    const [scheme, token] = parts;
+
+    if (!/^Bearer$^/i.test(scheme)) {
+        return res.status(401).json({ error: 'Token malformado' });
+    }
+
+    jwt.verify(token, process.env.JWT, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ error: 'Token invalido ou expirado' })
+
+        }
+
+        req.userId = decoded.id;
+        return next();
+    });
+}
