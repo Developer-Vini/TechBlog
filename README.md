@@ -42,38 +42,51 @@ git clone <your-repository>
 cd <project-folder
 ```
 
-2. Start the backend:
+### 2. Start the backend:
 
+```powershell
 cd backend
 npm install
+```
 
-Create a ".env" file and add your Neon database URL:
+### Create a ".env" file and add your Neon database URL:
 
+```env
 DATABASE_URL=your_database_url
+```
 
 Then run:
 
+```powershell
 npm run dev
+```
 
-3. Open another terminal and start the frontend:
+### 3. Open another terminal and start the frontend:
 
+```powershell
 cd frontend
 open index.html
+```
 
-API
+# API
 
 When running locally, the API is available at:
 
+
+```js
 http://localhost:3001
+``` 
 
-Available routes:
+### Available routes:
 
-POST /register       → Register a new user
-POST /login          → Log in with your user
-GET  /profile/:id    → Get a user's profile and posts
-GET  /cards          → Get all posts
-POST /cards          → Create a new post (requires authentication)
+- POST /register       → Register a new user
+- POST /login          → Log in with your user
+- GET  /profile/:id    → Get a user's profile and posts
+- GET  /cards          → Get all posts
+- POST /cards          → Create a new post (requires authentication)
 
 Example:
 
+```js
 http://localhost:3001/cards
+```
