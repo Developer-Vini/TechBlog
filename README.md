@@ -44,7 +44,7 @@ cd <project-folder
 
 ### 2. Start the backend:
 
-```powershell
+```cmd
 cd backend
 npm install
 ```
