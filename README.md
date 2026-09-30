@@ -33,15 +33,15 @@ No matter what you want to share, just write it and post it.
 
 The project is simple; I should have focused more on the front-end. I focused too much on the back-end (I prefer the back-end).
 
-# Runing locally
+# Running locally
 
-1. Fork this repository and clone your fork:
+### 1. Fork this repository and clone your fork:
 
-``
+```powershell
 git clone <your-repository>
-cd <project-folder>
-
+cd <project-folder
 ```
+
 2. Start the backend:
 
 cd backend
@@ -60,13 +60,20 @@ npm run dev
 cd frontend
 open index.html
 
-You can also interact with the API directly when running locally:
+API
 
-- "POST /register" — Register a new user
-- "POST /login" — Log in with your user
-- "GET /cards" — Get all posts
-- "POST /card" — Create a new post
-
-The API will be available at:
+When running locally, the API is available at:
 
 http://localhost:3001
+
+Available routes:
+
+POST /register       → Register a new user
+POST /login          → Log in with your user
+GET  /profile/:id    → Get a user's profile and posts
+GET  /cards          → Get all posts
+POST /cards          → Create a new post (requires authentication)
+
+Example:
+
+http://localhost:3001/cards
