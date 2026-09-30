@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <style>
+        .link-voltar {
+            display: inline-block;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+        }
+
+        .link-voltar:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="sobre.html">About</a>
+    </nav>
+
+
+    <div class="container">
+        <h1>Create  Account</h1>
+        <p>Register your credentials to manage and publish new blog posts.</p>
+
+        <form id="register-form">
+            <input type="text" id="reg-name" placeholder="Primeiro Nome (firstName)" required>
+            <input type="email" id="reg-email" placeholder="E-mail" required>
+            <input type="password" id="reg-password" placeholder="Senha (mínimo 6 caracteres)" required>
+            <button type="submit">Create my account</button>
+        </form>
+
+        <a href="index.html" class="link-voltar"><- Back to Login</a>
+    </div>
+
+    <script src="src/js/app.js"></script>
+</body>
+
+</html>

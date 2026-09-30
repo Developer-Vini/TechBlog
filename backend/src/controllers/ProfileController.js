@@ -42,5 +42,23 @@ module.exports = {
             console.error('Erro de criar card', error);
             return res.status(500).json({ error: "Erro ao criar card" })
         }
+    },
+    async getCards(req, res) {
+    try {
+        const cards = await Card.findAll({
+            attributes: ['id', 'title', 'content', 'createdAt'],
+            order: [['createdAt', 'ASC']]
+        });
+
+        return res.json({
+            Cards: cards
+        });
+
+    } catch (error) {
+        console.error('Erro ao buscar cards:', error);
+        return res.status(500).json({
+            error: "Erro ao buscar cards"
+        });
     }
+}
 }

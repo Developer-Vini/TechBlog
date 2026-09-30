@@ -10,7 +10,7 @@ routes.post('/register', authController.register);
 routes.post('/login', authController.login)
 
 routes.get('/profile/:id', ProfileController.getProfile);
-
+routes.get('/cards', ProfileController.getCards);
 routes.post('/cards', authMiddleware, ProfileController.createCard);
 
 module.exports = routes
