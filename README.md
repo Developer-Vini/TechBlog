@@ -37,7 +37,7 @@ The project is simple; I should have focused more on the front-end. I focused to
 
 ### 1. Fork this repository and clone your fork:
 
-```git
+```powershell
 git clone <your-repository>
 cd <project-folder
 ```
@@ -57,7 +57,7 @@ DATABASE_URL=your_database_url
 
 Then run:
 
-```node
+```cmd
 npm run dev
 ```
 
