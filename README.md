@@ -32,3 +32,41 @@ No matter what you want to share, just write it and post it.
 
 
 The project is simple; I should have focused more on the front-end. I focused too much on the back-end (I prefer the back-end).
+
+# Runing locally
+
+1. Fork this repository and clone your fork:
+
+``
+git clone <your-repository>
+cd <project-folder>
+
+```
+2. Start the backend:
+
+cd backend
+npm install
+
+Create a ".env" file and add your Neon database URL:
+
+DATABASE_URL=your_database_url
+
+Then run:
+
+npm run dev
+
+3. Open another terminal and start the frontend:
+
+cd frontend
+open index.html
+
+You can also interact with the API directly when running locally:
+
+- "POST /register" — Register a new user
+- "POST /login" — Log in with your user
+- "GET /cards" — Get all posts
+- "POST /card" — Create a new post
+
+The API will be available at:
+
+http://localhost:3001
