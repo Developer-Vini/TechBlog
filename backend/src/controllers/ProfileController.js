@@ -12,7 +12,8 @@ module.exports = {
                 include: {
                     model: Card,
                     attributes: ['id', 'title', 'content', 'createdAt']
-                }
+                },
+                order: [['createdAt', 'ASC']]
             });
 
             if (!profile) {
